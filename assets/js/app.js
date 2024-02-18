@@ -3,6 +3,8 @@ import movies from './movies.js';
 
 // DOM Elements
 const container = document.querySelector('section');
+const form = document.querySelector('form');
+const callToAction = document.querySelector('.call-to-action');
 
 // Render Data
 const renderMovies = (arr) => {
@@ -25,3 +27,14 @@ const renderMovies = (arr) => {
 };
 
 // renderMovies(movies);
+
+// Show Search
+const showSearch = (e) => {
+  if (e.key !== ' ') return;
+
+  form.style.display = 'inline-block';
+  callToAction.style.display = 'none';
+};
+
+// Event Listeners
+window.addEventListener('keydown', showSearch);

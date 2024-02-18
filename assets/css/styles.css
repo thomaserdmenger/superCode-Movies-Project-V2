@@ -50,3 +50,8 @@ form {
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 1.5rem;
 }
+
+.call-to-action {
+  font-size: 2rem;
+  font-weight: 300;
+}
