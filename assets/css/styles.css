@@ -18,6 +18,28 @@ html {
   background-color: white;
 }
 
+section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 80%;
+  gap: 1rem;
+}
+
+.movies {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.movies-title {
+  font-weight: 700;
+  margin-block-end: 0.2rem;
+}
+
+form {
+  display: none;
+}
+
 #user-input {
   padding: 1.5rem;
   width: 600px;
