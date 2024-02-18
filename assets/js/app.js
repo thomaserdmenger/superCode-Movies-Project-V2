@@ -26,15 +26,42 @@ const renderMovies = (arr) => {
   container.innerHTML = data;
 };
 
-// renderMovies(movies);
-
 // Show Search
 const showSearch = (e) => {
   if (e.key !== ' ') return;
 
   form.style.display = 'inline-block';
   callToAction.style.display = 'none';
+  container.innerHTML = '';
+  document.querySelector('input[type="text"]').focus();
+};
+
+// Filter Movies
+const filterMovies = (e) => {
+  e.preventDefault();
+
+  // Get User Input
+  const userInput = document
+    .querySelector('input[type="text"]')
+    .value.toLowerCase();
+
+  console.log(userInput);
+
+  // Filter Movies
+  const filteredMovies = movies.filter((movie) =>
+    movie[0].toLowerCase().includes(userInput)
+  );
+
+  console.log(filteredMovies);
+
+  // Styles
+  form.style.display = 'none';
+  document.querySelector('input[type="text"]').value = '';
+
+  // Pass filtered Movies to Render Function
+  renderMovies(filteredMovies);
 };
 
 // Event Listeners
 window.addEventListener('keydown', showSearch);
+form.addEventListener('submit', filterMovies);

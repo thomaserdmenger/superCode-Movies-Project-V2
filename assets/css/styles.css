@@ -51,6 +51,10 @@ form {
   font-size: 1.5rem;
 }
 
+#user-input:focus {
+  outline: none;
+}
+
 .call-to-action {
   font-size: 2rem;
   font-weight: 300;
