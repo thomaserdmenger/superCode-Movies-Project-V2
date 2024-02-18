@@ -5,6 +5,7 @@ import movies from './movies.js';
 const container = document.querySelector('section');
 const form = document.querySelector('form');
 const callToAction = document.querySelector('.call-to-action');
+const error = document.querySelector('.error ');
 
 // Render Data
 const renderMovies = (arr) => {
@@ -33,6 +34,7 @@ const showSearch = (e) => {
   form.style.display = 'inline-block';
   callToAction.style.display = 'none';
   container.innerHTML = '';
+  error.textContent = '';
   document.querySelector('input[type="text"]').focus();
 };
 
@@ -49,7 +51,7 @@ const filterMovies = (e) => {
 
   // Filter Movies
   const filteredMovies = movies.filter((movie) =>
-    movie[0].toLowerCase().includes(userInput)
+    movie[0].toLowerCase().includes(userInput.toLowerCase())
   );
 
   console.log(filteredMovies);
@@ -59,7 +61,9 @@ const filterMovies = (e) => {
   document.querySelector('input[type="text"]').value = '';
 
   // Pass filtered Movies to Render Function
-  renderMovies(filteredMovies);
+  filteredMovies.length === 0
+    ? (error.textContent = 'Movie not found')
+    : renderMovies(filteredMovies);
 };
 
 // Event Listeners
